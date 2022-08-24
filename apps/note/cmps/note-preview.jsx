@@ -1,4 +1,4 @@
-export function notePreview({ note }) {
+export function NotePreview({ notes }) {
 
     return <article className="note-container">
         <button className="delete-note-btn">delete</button>

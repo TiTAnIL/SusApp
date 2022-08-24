@@ -1,7 +1,7 @@
 import { storageService } from "./note-storage.service.js"
 import { utilService } from './note-util.service.js'
 
-export const noteService = {
+export const NoteService = {
     query
 }
 
