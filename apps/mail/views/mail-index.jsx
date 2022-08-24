@@ -8,13 +8,11 @@ export class MailIndex extends React.Component {
         filterBy: null
     }
 
-
     componentDidMount() {
         console.log(this.state)
         console.log('App Mounted')
         this.loadMails()
     }
-
 
     loadMails = () => {
         console.log('Loading mails')
@@ -22,12 +20,31 @@ export class MailIndex extends React.Component {
             .then((mails) => this.setState({ mails }))
     }
 
+    onRemoveMail = (mailId) => {
+        mailService.remove(mailId)
+            .then(() => {
+                console.log('Removed!')
+                const mails = this.state.mails.filter(mail => mail.id !== mailId)
+                this.setState({ mails, isBounce: true })
+                showSuccessMsg('Mail removed')
+                setTimeout(() => {
+                    this.setState({ isBounce: false })
+                }, 500)
+
+            })
+            .catch(err => {
+                console.log('Problem!!', err)
+                showErrorMsg('Cannot remove mail')
+            })
+    }
+
 
     render() {
         const { mails } = this.state
+        const { onRemoveMail } = this
         return (
             <main className="main-container">
-                <MailList mails={mails} />
+                <MailList mails={mails} onRemoveMail={onRemoveMail} />
             </main>
         )
     }
