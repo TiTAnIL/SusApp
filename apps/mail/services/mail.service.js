@@ -4,6 +4,7 @@ const KEY = 'mailsDB'
 
 export const mailService = {
     query,
+    remove
 }
 
 
@@ -20,8 +21,12 @@ function query() {
     return Promise.resolve(mails)
 }
 
-
-
+function remove(mailId) {
+    let mails = _loadFromStorage()
+    mails = mails.filter(mail => mail.id !== mailId)
+    _saveToStorage(mails)
+    return Promise.resolve()
+}
 
 function _saveToStorage(val) {
     storageService.saveToStorage(KEY, val)
