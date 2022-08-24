@@ -1,4 +1,5 @@
-import { mailService } from "../services/mail.service.jsx"
+import { MailList } from "../cmps/mail-list.jsx"
+import { mailService } from "../services/mail.service.js"
 
 export class MailIndex extends React.Component {
 
@@ -9,24 +10,25 @@ export class MailIndex extends React.Component {
 
 
     componentDidMount() {
-        console.log('App Mounted') 
+        console.log(this.state)
+        console.log('App Mounted')
         this.loadMails()
-     }
+    }
 
 
-     loadMails = () => {
+    loadMails = () => {
         console.log('Loading mails')
         mailService.query(this.state)
-        .then((books) => this.setState({ books }))
-        console.log('from load', this.state)
-        
-     }
+            .then((mails) => this.setState({ mails }))
+    }
 
 
     render() {
+        const { mails } = this.state
         return (
-
-            <div>mail app</div>
+            <main className="main-container">
+                <MailList mails={mails} />
+            </main>
         )
     }
 }
