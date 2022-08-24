@@ -11,6 +11,56 @@ export const noteService = {
 
 const KEY = 'notesDB'
 var gNotesType = ['text', 'image', 'video', 'todo']
+var gNotes = [
+    {
+        "_id": "63065d68ee68b790a57067e5",
+        "index": 0,
+        "type": "text",
+        "about": "esse eiusmod non duis ipsum"
+    },
+    {
+        "_id": "63065d684043217818eabf19",
+        "index": 1,
+        "type": "text",
+        "about": "minim sunt culpa amet excepteur"
+    },
+    {
+        "_id": "63065d68c41dceb41d0431b6",
+        "index": 2,
+        "type": "text",
+        "about": "proident cupidatat adipisicing pariatur laborum"
+    },
+    {
+        "_id": "63065d689316cac20b61f41b",
+        "index": 3,
+        "type": "text",
+        "about": "voluptate Lorem consectetur aute et"
+    },
+    {
+        "_id": "63065d6824558e7c6eb5e140",
+        "index": 4,
+        "type": "text",
+        "about": "eiusmod ullamco ex ipsum culpa"
+    },
+    {
+        "_id": "63065d68188148d42b99e3e4",
+        "index": 5,
+        "type": "todo",
+        "about": "nulla in dolore incididunt qui"
+    },
+    {
+        "_id": "63065d68ef1c9f47d355a605",
+        "index": 6,
+        "type": "image",
+        "about": "non cupidatat commodo deserunt excepteur"
+    },
+    {
+        "_id": "63065d68c5937882b57400e1",
+        "index": 7,
+        "type": "video",
+        "about": "occaecat voluptate do sint nostrud"
+    }
+]
 
 function query() {
     let notes = _loadFromStorage()
@@ -23,65 +73,21 @@ function query() {
 }
 
 function _createNotes() {
-    const notes = []
-    for (let i = 0; i < 7; i++) {
-        const noteType = gNotesType[utilService.getRandomIntInclusive(0, gNotesType.length - 1)]
-        notes.push(_createNote(noteType))
-    }
-    return cars
+    // const notes = []
+    // for (let i = 0; i < 7; i++) {
+    //     const noteType = gNotesType[utilService.getRandomIntInclusive(0, gNotesType.length - 1)]
+    //     notes.push(_createNote(noteType))
+    // }
+    return gNotes
 }
 
-function _createNote(){
-    return {
-        id: utilService.makeId(),
-        vendor,
-        speed,
-        desc: utilService.makeLorem()
-    }
+// function _createNote(type) {
+//     return {
+//         id: utilService.makeId(),
+//         Text: utilService.makeLorem()
+//     }
+// }
 
-}
-
-
-function getById(carId) {
-    if (!carId) return Promise.resolve(null)
-    const cars = _loadFromStorage()
-    const car = cars.find(car => carId === car.id)
-    return Promise.resolve(car)
-}
-
-
-
-
-function removeReview(name, bookId) {
-    let books = _loadFromStorage()
-    const bookIdx = books.findIndex(book => book.id === bookId)
-    const reviews = books[bookIdx].reviews
-    const reviewIdx = reviews.findIndex(review => review.fullName === name)
-    reviews.splice(reviewIdx, 1)
-
-    _saveToStorage(books)
-    return Promise.resolve()
-}
-
-function createReview(review, bookId) {
-    let books = _loadFromStorage()
-    const bookIdx = books.findIndex(book => book.id === bookId)
-
-    if (books[bookIdx].reviews) books[bookIdx].reviews.unshift(review)
-    else {
-        books[bookIdx].reviews = []
-        books[bookIdx].reviews.push(review)
-    }
-    _saveToStorage(books)
-    return Promise.resolve()
-}
-
-function getById(bookId) {
-    if (!bookId) return Promise.resolve(null)
-    const books = _loadFromStorage()
-    const book = books.find(book => book.id === bookId)
-    return Promise.resolve(book)
-}
 
 function _loadFromStorage() {
     return storageService.loadFromStorage(KEY)
