@@ -1,6 +1,5 @@
-// import { BookDetails } from "./book-details.jsx"
-// import { BookFilter } from "../cmps/book-filter.jsx"
-// import { BookList } from "../cmps/book-list.jsx"
+import { NoteList } from "../cmps/note-list.jsx"
+// import { notePreview } from "../cmps/note-preview.jsx"
 import { noteService } from "../services/note.service.js"
 
 
@@ -17,17 +16,18 @@ export class NoteIndex extends React.Component {
     }
 
     loadNotes = () => {
-        noteService.query(this.state.filterBy)
-            .then(books => {
-                this.setState({ notes })
-            })
+        console.log('Loading Notes')
+        noteService.query(this.state)
+            .then((notes) => this.setState({ notes }))
     }
     
     render() {
         const { notes } = this.state
-        return <section className="notes-app">
-
-        </section>
+        return (
+            <main className="notes-container">
+                <NoteList notes={notes} />
+            </main>
+        )
     }
 }
 

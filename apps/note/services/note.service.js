@@ -2,15 +2,13 @@ import { storageService } from "./note-storage.service.js"
 import { utilService } from './note-util.service.js'
 
 export const noteService = {
-    query,
-    getById,
-    remove,
-    createReview,
-    removeReview
+    query
 }
 
 const KEY = 'notesDB'
+
 var gNotesType = ['text', 'image', 'video', 'todo']
+
 var gNotes = [
     {
         "_id": "63065d68ee68b790a57067e5",
