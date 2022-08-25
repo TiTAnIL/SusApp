@@ -1,0 +1,13 @@
+.notes-container {
+    background-color: rgb(24, 240, 240);
+    column-count: 3;
+    column-gap: 1vw;
+    border: 1px solid black;
+}
+
+.note-container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
