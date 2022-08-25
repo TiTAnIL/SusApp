@@ -10,7 +10,13 @@
     flex-direction: row-reverse;
 }
 
-/* .delete-note-btn {
+.delete-note btn {
+    margin-bottom: 0;
+    height: 1em;
+    width: 1em;
+}
 
-} */
-
+.icon {
+    height: 2em;
+    width: 2em;
+}
