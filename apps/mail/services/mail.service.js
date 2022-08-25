@@ -4,7 +4,8 @@ const KEY = 'mailsDB'
 
 export const mailService = {
     query,
-    remove
+    remove,
+    getMailById
 }
 
 
@@ -12,9 +13,16 @@ function getMails() {
     return gMails
 }
 
+function getMailById(mailId) {
+    if (!mailId) return Promise.resolve(null)
+    const mails = _loadFromStorage()
+    const mail = mails.find(mail => mailId === mail.id)
+    return Promise.resolve(mail)
+}
+
 function query() {
     let mails = _loadFromStorage()
-    if (!mails) {
+    if (!mails || !mails.length) {
         mails = getMails()
         _saveToStorage(mails)
     }
@@ -22,9 +30,7 @@ function query() {
 }
 
 function remove(mailId) {
-    let mails = _loadFromStorage() // WHY RETURNS EMPTY!
-    console.log('mails from remove', mails)
-    console.log('mailId from remove', mailId)
+    let mails = _loadFromStorage()
     mails = mails.filter(mail => mail.id !== mailId)
     _saveToStorage(mails)
     return Promise.resolve()
@@ -35,8 +41,7 @@ function _saveToStorage(val) {
 }
 
 function _loadFromStorage() {
-    storageService.loadFromStorage(KEY)
-
+    return storageService.loadFromStorage(KEY) 
 }
 
 
