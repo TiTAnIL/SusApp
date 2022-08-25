@@ -1,16 +1,16 @@
 import { MailList } from "../cmps/mail-list.jsx"
 import { mailService } from "../services/mail.service.js"
+import { MailDetails } from "./mail-details.jsx"
 
 export class MailIndex extends React.Component {
 
     state = {
         mails: [],
-        filterBy: null
+        filterBy: null,
+        selectedMail: null
     }
 
     componentDidMount() {
-        console.log(this.state)
-        console.log('App Mounted')
         this.loadMails()
     }
 
@@ -20,22 +20,15 @@ export class MailIndex extends React.Component {
             .then((mails) => this.setState({ mails }))
     }
 
-    onRemoveMail = (mailId) => {
-        console.log('mailId from remove mail', mailId);
-        mailService.remove(mailId)
-            .then(() => {
-                const mails = this.state.mails.filter(mail => mail.id !== mailId)
-                this.setState({ mails, selectedMail: null })
-            })
-    }
-
-
     render() {
-        const { mails } = this.state
-        const { onRemoveMail } = this
+        const { mails} = this.state
         return (
             <main className="main-container">
-                <MailList mails={mails} onRemoveMail={onRemoveMail} />
+                {
+                    <div>
+                        {<MailList mails={mails} onRemoveMail={this.onRemoveMail} onSelectMail={this.onSelectMail} />}
+                    </div>
+                }
             </main>
         )
     }
