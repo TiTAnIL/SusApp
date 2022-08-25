@@ -22,7 +22,9 @@ function query() {
 }
 
 function remove(mailId) {
-    let mails = _loadFromStorage()
+    let mails = _loadFromStorage() // WHY RETURNS EMPTY!
+    console.log('mails from remove', mails)
+    console.log('mailId from remove', mailId)
     mails = mails.filter(mail => mail.id !== mailId)
     _saveToStorage(mails)
     return Promise.resolve()
@@ -34,12 +36,13 @@ function _saveToStorage(val) {
 
 function _loadFromStorage() {
     storageService.loadFromStorage(KEY)
+
 }
 
 
 const gMails = [
     {
-        "_id": "63063a9b0fce165fdfba7e07",
+        "id": "63063a9b0fce165fdfba7e07",
         "index": 0,
         "guid": "84b8cf98-edec-4adb-8618-10edf617a3dd",
         "isActive": true,
@@ -49,7 +52,7 @@ const gMails = [
         "title": "do non sit magna Lorem"
     },
     {
-        "_id": "63063a9bc94cebb08bd90fe5",
+        "id": "63063a9bc94cebb08bd90fe5",
         "index": 1,
         "guid": "99cffa0a-bd77-45ab-a60e-efbf8ebb7941",
         "isActive": true,
@@ -59,7 +62,7 @@ const gMails = [
         "title": "irure officia velit in pariatur"
     },
     {
-        "_id": "63063a9b3875598c00e33fdb",
+        "id": "63063a9b3875598c00e33fdb",
         "index": 2,
         "guid": "825bc163-4d7d-43a4-a74e-34b217d0f18c",
         "isActive": true,
@@ -69,7 +72,7 @@ const gMails = [
         "title": "laboris laborum dolore minim velit"
     },
     {
-        "_id": "63063a9b6776466315940a0c",
+        "id": "63063a9b6776466315940a0c",
         "index": 3,
         "guid": "0c475275-fd20-4609-b35e-46df821494b1",
         "isActive": true,
@@ -79,7 +82,7 @@ const gMails = [
         "title": "nisi dolore eu officia magna"
     },
     {
-        "_id": "63063a9b4fa08de4d4a15265",
+        "id": "63063a9b4fa08de4d4a15265",
         "index": 4,
         "guid": "fed37cb2-aec6-49d8-bb37-ba3d33406069",
         "isActive": true,
@@ -89,7 +92,7 @@ const gMails = [
         "title": "aute fugiat reprehenderit qui esse"
     },
     {
-        "_id": "63063a9bc8bab74cb5efeed2",
+        "id": "63063a9bc8bab74cb5efeed2",
         "index": 5,
         "guid": "43b3acaf-eccc-4711-8b00-fd6341dfc48b",
         "isActive": true,
@@ -99,7 +102,7 @@ const gMails = [
         "title": "ipsum deserunt laborum minim ut"
     },
     {
-        "_id": "63063a9bfeb94a54d3178011",
+        "id": "63063a9bfeb94a54d3178011",
         "index": 6,
         "guid": "143ec27a-819c-4897-8924-53f476cb7df0",
         "isActive": true,
@@ -109,7 +112,7 @@ const gMails = [
         "title": "occaecat nostrud dolore eu ut"
     },
     {
-        "_id": "63063a9b120fed65a7f61e5e",
+        "id": "63063a9b120fed65a7f61e5e",
         "index": 7,
         "guid": "f261635c-e011-400d-8c8b-13f837151356",
         "isActive": false,

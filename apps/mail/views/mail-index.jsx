@@ -1,4 +1,5 @@
 import { MailList } from "../cmps/mail-list.jsx"
+import { MailPreview } from "../cmps/mail-preview.jsx"
 import { mailService } from "../services/mail.service.js"
 
 export class MailIndex extends React.Component {
@@ -9,8 +10,6 @@ export class MailIndex extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.state)
-        console.log('App Mounted')
         this.loadMails()
     }
 
@@ -21,7 +20,8 @@ export class MailIndex extends React.Component {
     }
 
     onRemoveMail = (mailId) => {
-        console.log('mailId from remove mail', mailId);
+        console.log('mailId from remove mail', mailId)
+        console.log('mails',this.state.mails)
         mailService.remove(mailId)
             .then(() => {
                 const mails = this.state.mails.filter(mail => mail.id !== mailId)
@@ -32,10 +32,11 @@ export class MailIndex extends React.Component {
 
     render() {
         const { mails } = this.state
-        const { onRemoveMail } = this
+        const { onRemoveMail } = this.state
         return (
             <main className="main-container">
-                <MailList mails={mails} onRemoveMail={onRemoveMail} />
+                <MailList mails={mails} onRemoveMail={this.onRemoveMail} />
+                {/* <MailPreview onRemoveMail={this.onRemoveMail} /> */}
             </main>
         )
     }
