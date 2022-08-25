@@ -11,12 +11,14 @@
 }
 
 .delete-note btn {
+    background-color: transparent;
     margin-bottom: 0;
     height: 1em;
     width: 1em;
 }
 
 .icon {
+    background-color: transparent;
     height: 2em;
     width: 2em;
 }
