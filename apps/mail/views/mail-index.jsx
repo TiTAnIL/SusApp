@@ -21,20 +21,11 @@ export class MailIndex extends React.Component {
     }
 
     onRemoveMail = (mailId) => {
+        console.log('mailId from remove mail', mailId);
         mailService.remove(mailId)
             .then(() => {
-                console.log('Removed!')
                 const mails = this.state.mails.filter(mail => mail.id !== mailId)
-                this.setState({ mails, isBounce: true })
-                showSuccessMsg('Mail removed')
-                setTimeout(() => {
-                    this.setState({ isBounce: false })
-                }, 500)
-
-            })
-            .catch(err => {
-                console.log('Problem!!', err)
-                showErrorMsg('Cannot remove mail')
+                this.setState({ mails, selectedMail: null })
             })
     }
 
