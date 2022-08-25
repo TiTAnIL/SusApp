@@ -71,21 +71,8 @@ function query() {
 }
 
 function _createNotes() {
-    // const notes = []
-    // for (let i = 0; i < 7; i++) {
-    //     const noteType = gNotesType[utilService.getRandomIntInclusive(0, gNotesType.length - 1)]
-    //     notes.push(_createNote(noteType))
-    // }
     return gNotes
 }
-
-// function _createNote(type) {
-//     return {
-//         id: utilService.makeId(),
-//         Text: utilService.makeLorem()
-//     }
-// }
-
 
 function _loadFromStorage() {
     return storageService.loadFromStorage(KEY)

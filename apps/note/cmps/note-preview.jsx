@@ -1,10 +1,20 @@
-export function NotePreview({ notes }) {
 
+export function NotePreview({ note }) {
     return <article className="note-container">
-        <button className="delete-note-btn">delete</button>
-        <button className="edit-note-btn">edit</button>
-        <button className="email-note-btn">send</button>
-        <div className="note-bgc-btn">note color</div>
-        <div className="pin-note-btn">pin</div>
+        <button className="delete-note btn" onClick>
+            <img className="icon" src="assets/img/bin.png" />
+        </button>
+        <button className="edit-note btn" onClick>
+            <img className="icon" src="assets/img/compose.png" />
+        </button>
+        <button className="send-note btn" onClick>
+            <img className="icon" src="assets/img/email.png" />
+        </button>
+        <button className="select-note-color btn" onClick>
+            <img className="icon" src="assets/img/palette.png" />
+        </button>
+        <button className="pin-note btn" onClick>
+            <img className="icon" src="assets/img/pin.png" />
+        </button>
     </article>
 }
