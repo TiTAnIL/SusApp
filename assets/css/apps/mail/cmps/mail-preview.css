@@ -1,9 +1,11 @@
 
 
- /* main layout */
-
 .mail-body {
     box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
+}
+
+.mail-container {
+    display: flex;
 }
 
 .msg-container {
@@ -15,14 +17,15 @@
 }
 
 .author-container {
+    /* display: flex; */
     empty-cells: show;
     font-size: .875rem;
-    height: 20px;
-    outline: none;
-    padding: 0;
-    vertical-align: middle;
+    /* height: 20px; */
+    /* outline: none; */
+    /* padding: 0; */
+    /* vertical-align: middle; */
     white-space: nowrap;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .mail-author{
@@ -33,7 +36,8 @@
 }
 
 .msg-container {
-    max-width:70vw;
+    max-width:65vw;
+    min-width: 10vw;
     overflow:hidden;
 }
 
@@ -50,6 +54,7 @@
 }
 
 .mail-content {
+    /* background-color: aqua; */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -57,7 +62,7 @@
     /* box-flex: 1; */
     /* flex-grow: 1; */
     /* flex-shrink: 1; */
-    text-align: left;
+    /* text-align: left; */
 }
 
 
@@ -66,14 +71,3 @@
 .mail-btn-size {
     width: .875rem;
 }
-
-
-/* helpers */
-
-/* .hide {
-    z-index: 0;
-}
-
-.reveal-hover:hover {
-    z-index: 2;
-} */
