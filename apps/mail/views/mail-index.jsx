@@ -1,6 +1,5 @@
 import { MailList } from "../cmps/mail-list.jsx"
 import { mailService } from "../services/mail.service.js"
-import { MailDetails } from "./mail-details.jsx"
 
 export class MailIndex extends React.Component {
 
@@ -19,6 +18,22 @@ export class MailIndex extends React.Component {
         mailService.query(this.state)
             .then((mails) => this.setState({ mails }))
     }
+
+    onRemoveMail = (mailId) => {
+        mailService.remove(mailId)
+            .then(() => {
+                console.log('mail removed')
+                const mails = this.state.mails.filter(mail => mail.id !== mailId)
+                this.setState({ mails, selectedMail: null })
+                // showSuccessMsg('mail Removed')
+            })
+            .catch(err => {
+                console.log('Problem!!', err)
+            })
+    }
+
+
+
 
     render() {
         const { mails} = this.state

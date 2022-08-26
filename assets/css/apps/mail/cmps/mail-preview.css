@@ -1,8 +1,12 @@
+
+
+ /* main layout */
+
 .mail-body {
     box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
 }
 
-.mail-container {
+.msg-container {
     font-size: .875rem;
     letter-spacing: normal;
     padding-bottom: 10px;
@@ -49,9 +53,27 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    flex-basis: 0;
-    box-flex: 1;
-    flex-grow: 1;
-    flex-shrink: 1;
+    /* flex-basis: 0; */
+    /* box-flex: 1; */
+    /* flex-grow: 1; */
+    /* flex-shrink: 1; */
     text-align: left;
 }
+
+
+/* buttons */
+
+.mail-btn-size {
+    width: .875rem;
+}
+
+
+/* helpers */
+
+/* .hide {
+    z-index: 0;
+}
+
+.reveal-hover:hover {
+    z-index: 2;
+} */

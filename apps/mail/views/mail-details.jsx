@@ -25,13 +25,13 @@ export class MailDetails extends React.Component {
                 <div className="title"></div>
                 <table>
                     <thead>
-                        <td>
-                            <tr>
+                        <tr>
+                            <td>
                                 <div className="mail-heading">
                                     <h2 className="h2-mail-heading">{mail.title}</h2>
                                 </div>
-                            </tr>
-                        </td>
+                            </td>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
