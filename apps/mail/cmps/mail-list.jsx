@@ -1,12 +1,13 @@
 import { MailPreview } from "./mail-preview.jsx"
+import { SideBar } from "../cmps/side-bar.jsx"
 
+export function MailList({ mails, onRemoveMail }) {
 
-export function MailList({ mails }) {
-
-    return <table>
+    return <div> <SideBar />
+    <table className="flex">
     <tbody className="mails-app">
-        {mails.map(mail => <MailPreview key={`mail-app${mail.id}`} mail={mail} />)}
-
+        {mails.map(mail => <MailPreview key={`mail-app${mail.id}`} mail={mail} onRemoveMail={onRemoveMail} />)}
     </tbody>
     </table>
+    </div>
 }
