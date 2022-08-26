@@ -63,7 +63,7 @@ var gNotes = [
 
 function query() {
     let notes = _loadFromStorage()
-    if (!notes) {
+    if (!notes || !notes.length) {
         notes = _createNotes()
         _saveToStorage(notes)
     }
@@ -77,7 +77,7 @@ function _createNotes() {
 
 function remove(noteId){
     let notes = _loadFromStorage()
-    notes = notes.filter(note => note.id !== noteId)
+    notes = notes.filter(note => note._id !== noteId)
     _saveToStorage(notes)
     return Promise.resolve()
 }

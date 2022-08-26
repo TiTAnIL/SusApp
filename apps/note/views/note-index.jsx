@@ -21,17 +21,17 @@ export class NoteIndex extends React.Component {
     }
 
     onRemoveNote = (noteId) => {
+        console.log(noteId)
         NoteService.remove(noteId)
             .then(() => {
                 console.log('Removed!')
-                const notes = this.state.notes.filter(note => note.id !== noteId)
-                showSuccessMsg('Note removed')
-          
-
+                const notes = this.state.notes.filter(note => note._id !== noteId)
+                // const notes = this.state.notes.map(note => note._id === noteId ?newNote : note)
+                console.log(notes,'yoyyo');
+                this.setState({ notes })
             })
             .catch(err => {
                 console.log('Problem!!', err)
-                showErrorMsg('Cannot remove note')
             })
     }
     
@@ -39,7 +39,7 @@ export class NoteIndex extends React.Component {
         const { notes } = this.state
         return (
             <main className="notes-container">
-                <NoteList notes={notes} />
+                <NoteList notes={notes} onRemoveNote={this.onRemoveNote} />
             </main>
         )
     }
