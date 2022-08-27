@@ -1,4 +1,27 @@
-.notes-container {
+.notes-home-page {
+    background-color: white;
+}
+
+.new-note-container {
+    border: transparent;
+    width: 99vw;
+    height: 3em;
+    display: flex;
+    align-items: center;
+}
+
+.input-btns {
+    display: flex;
+    align-self: center;
+    align-items: center;
+}
+
+.new-note {
+    display: flex;
+    margin-left: 5em;
+}
+
+.notes-display {
     column-count: 3;
     column-gap: 1vw;
     padding: 15px;
