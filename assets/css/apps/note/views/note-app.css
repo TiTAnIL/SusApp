@@ -1,24 +1,91 @@
-.notes-container {
+.notes-home-page {
+    background-color: white;
+}
+
+.new-note-container {
+    border: transparent;
+    width: 99vw;
+    height: 3em;
+    display: flex;
+    align-items: center;
+}
+
+.input-btns {
+    display: flex;
+    align-self: center;
+    align-items: center;
+}
+
+.new-note {
+    display: flex;
+    margin-left: 5em;
+}
+
+.notes-display {
     column-count: 3;
     column-gap: 1vw;
+    padding: 15px;
 }
 
 .note-container {
-    height: 40px;
-    border: 1px solid black;
+    /* height: 20em; */
+    /* width: 30em; */
+    padding: 15px;
+    box-shadow: 0 0 5px 0 rgb(51, 49, 49);
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid;
+}
+
+.btns-container {
+    margin-bottom: 0;
+    /* background-color: blue; */
     display: flex;
     flex-direction: row-reverse;
 }
 
-.delete-note btn {
+.delete-note-btn {
     background-color: transparent;
-    margin-bottom: 0;
-    height: 1em;
-    width: 1em;
+    border: transparent;
+    /* margin-bottom: 0; */
+    height: 2em;
+    width: 2em;
+}
+
+.edit-note-btn {
+    background-color: transparent;
+    border: transparent;
+    /* margin-bottom: 0; */
+    height: 2em;
+    width: 2em;
+}
+
+.send-note-btn {
+    background-color: transparent;
+    border: transparent;
+    /* margin-bottom: 0; */
+    height: 2em;
+    width: 2em;
+}
+
+.select-note-color-btn {
+    background-color: transparent;
+    border: transparent;
+    /* margin-bottom: 0; */
+    height: 2em;
+    width: 2em;
+}
+
+.pin-note-btn {
+    background-color: transparent;
+    border: transparent;
+    /* margin-bottom: 0; */
+    height: 2em;
+    width: 2em;
 }
 
 .icon {
     background-color: transparent;
-    height: 2em;
-    width: 2em;
+    height: 1em;
+    width: 1em;
 }
