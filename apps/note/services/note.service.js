@@ -6,7 +6,8 @@ export const NoteService = {
     remove,
     editNote,
     selectNoteColor,
-    pinNote
+    pinNote,
+    createNote
 }
 
 const KEY = 'notesDB'
@@ -18,7 +19,8 @@ var gNotes = [
         _id: '1',
         type: 'text',
         text: 'esse eiusmod non duis ipsum',
-        isSelect: false
+        isSelect: false,
+        openPalette: false
     },
     {
         _id: '2',
@@ -29,7 +31,7 @@ var gNotes = [
     {
         _id: '3',
         type: 'video',
-        url: <iframe width="560" height="315" src="https://www.youtube.com/embed/_Sx3he4ABw0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>,
+        src: 'https://www.youtube.com/embed/_Sx3he4ABw0',
         isSelect: false
     },
     {
@@ -46,7 +48,6 @@ function query() {
         notes = _createNotes()
         _saveToStorage(notes)
     }
-
     return Promise.resolve(notes)
 }
 
@@ -69,17 +70,38 @@ function editNote(noteId) {
 }
 
 function selectNoteColor(noteId) {
-    console.log('changing color!',noteId)
+    console.log('changing color!', noteId)
+    let notes = _loadFromStorage()
+    var index = notes.findIndex(note => note._id === noteId)
+    console.log(index)
     return Promise.resolve()
 }
 
 function pinNote(noteId) {
-    console.log('note pinned!',noteId)
+    console.log('note pinned!', noteId)
     return Promise.resolve()
 }
 
-function editToDo(noteId){
+function editToDo(noteId) {
 
+}
+
+function createNote(note){
+    var newNote = note
+    let notes = _loadFromStorage()
+    notes.push(newNote)
+    _saveToStorage(notes)
+    console.log(newNote)
+    return Promise.resolve()
+} 
+
+function createTextNote(val) {
+    let notes = _loadFromStorage()
+    const newTextNote = {
+
+    }
+    console.log(newTextNote)
+    return Promise.resolve()
 }
 
 function _loadFromStorage() {

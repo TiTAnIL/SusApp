@@ -37,6 +37,11 @@
     break-inside: avoid;
 }
 
+.video {
+    height: 20vw;
+    width: 20vw;
+}
+
 .btns-container {
     margin-bottom: 0;
     /* background-color: blue; */
@@ -74,6 +79,7 @@
     /* margin-bottom: 0; */
     height: 2em;
     width: 2em;
+    display: none
 }
 
 .pin-note-btn {

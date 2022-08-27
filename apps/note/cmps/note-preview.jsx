@@ -1,7 +1,6 @@
-import { TodoNote } from "./note-todo.service.js"
+// import { TodoNote } from "./note-todo.service.js"
 
 export function NotePreview({ note, onRemoveNote, onEditNote, onSelectColor, onPinNote }) {
-    console.log(note)
     switch (note.type) {
         case 'text':
             return <article className="note-container">
@@ -18,9 +17,10 @@ export function NotePreview({ note, onRemoveNote, onEditNote, onSelectColor, onP
                     <button className="send-note-btn" >
                         <img className="icon" src="assets/img/email.png" />
                     </button>
-                    <button className="select-note-color-btn" onClick={() => onSelectColor(note._id)}>
+                    <label>
                         <img className="icon" src="assets/img/palette.png" />
-                    </button>
+                        <input type="color" className="select-note-color-btn" onChange={onSelectColor(this)} />
+                    </label>
                     <button className="pin-note-btn" onClick={() => onPinNote(note._id)}>
                         <img className="icon" src="assets/img/pin.png" />
                     </button>
@@ -29,7 +29,7 @@ export function NotePreview({ note, onRemoveNote, onEditNote, onSelectColor, onP
         case 'image':
             return <article className="note-container">
                 <div className="note">
-                    <img className="note-img" src="assets/img/bin.png" />
+                    <img className="note-img" src={note.url} />
                 </div>
                 <div className="btns-container">
                     <button className="delete-note-btn" onClick={() => onRemoveNote(note._id)}>
@@ -44,9 +44,11 @@ export function NotePreview({ note, onRemoveNote, onEditNote, onSelectColor, onP
                 </div>
             </article>
         case 'video':
+            // {let videoSrc = note.src}
+            // console.log(videoSrc)
             return <article className="note-container">
                 <div className="note">
-                    {note.url}
+                    <iframe className="video" src="https://www.youtube.com/embed/_Sx3he4ABw0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>
                 <div className="btns-container">
                     <button className="delete-note-btn" onClick={() => onRemoveNote(note._id)}>

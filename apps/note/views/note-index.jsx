@@ -27,7 +27,6 @@ export class NoteIndex extends React.Component {
                 console.log('Removed!')
                 const notes = this.state.notes.filter(note => note._id !== noteId)
                 // const notes = this.state.notes.map(note => note._id === noteId ?newNote : note)
-                console.log(notes, 'yoyyo');
                 this.setState({ notes })
             })
             .catch(err => {
@@ -46,14 +45,16 @@ export class NoteIndex extends React.Component {
             })
     }
 
-    onSelectColor = (noteId) => {
-        NoteService.selectNoteColor(noteId)
-            .then(() => {
-                console.log('changing color!')
-            })
-            .catch(err => {
-                console.log('Problem!!', err)
-            })
+    onSelectColor = () => {
+        // ev.preventDefault()
+        console.log(this)
+        // NoteService.selectNoteColor(noteId)
+        //     .then(() => {
+        //         console.log('changing color!')
+        //     })
+        //     .catch(err => {
+        //         console.log('Problem!!', err)
+        //     })
     }
 
     onPinNote = (noteId) => {
@@ -80,7 +81,8 @@ export class NoteIndex extends React.Component {
         const { notes } = this.state
         return (
             <main className="notes-home-page">
-                <NewNote />
+                <NewNote
+                />
                 <NoteList
                     notes={notes}
                     onRemoveNote={this.onRemoveNote}
