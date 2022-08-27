@@ -21,3 +21,8 @@
 .grid {
     display: grid;
 }
+
+.btn {
+    text-align: center;
+    cursor: pointer;
+}

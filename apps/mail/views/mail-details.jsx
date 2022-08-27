@@ -1,8 +1,8 @@
+import { Compose } from "../cmps/compose.jsx"
 import { SideBar } from "../cmps/side-bar.jsx"
 import { mailService } from "../services/mail.service.js"
 
 // const { Link } = ReactRouterDOM
-
 
 export class MailDetails extends React.Component {
 
@@ -15,15 +15,26 @@ export class MailDetails extends React.Component {
     }
 
     loadMail = () => {
-        const {mailId} = this.props.match.params
+        const { mailId } = this.props.match.params
         mailService.getMailById(mailId)
-            .then((mail) => this.setState({mail}))
+            .then((mail) => this.setState({ mail }))
     }
 
     render() {
         const { mail } = this.state
         if (!mail) return <div>Loading...</div>
         return <section className="mail-details">
+            <div className="compose-container">
+                <span className="compose-icon">
+                </span>
+                <span className="compose-text">
+                </span>
+            <div className="compose-cotainer">
+                <span className="compose-icon"><Compose /></span>
+            </div>
+
+
+            </div>
             <SideBar />
             <div className="mail-container">
                 <div className="title"></div>
@@ -56,6 +67,6 @@ export class MailDetails extends React.Component {
                 </table>
                 <div className="content"></div>
             </div>
-        </section >
+        </section>
     }
 }

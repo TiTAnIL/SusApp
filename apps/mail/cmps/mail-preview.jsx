@@ -1,8 +1,6 @@
-
 const { Link } = ReactRouterDOM
 
-export function MailPreview({ mail, onRemoveMail }) {
-
+export function MailPreview({ mail, onRemoveMail, onStar }) {
 
     return <tr key={`container${mail.id}`} className="mail-body">
         <td>
@@ -10,8 +8,10 @@ export function MailPreview({ mail, onRemoveMail }) {
                 <input type="checkbox" id="vehicle1" />
             </span>
         </td>
-        <td key={`star-btn${mail.id}`} className="star-container btn">
-            <span className="btn-star"><img className="star-img mail-btn-size" src="assets/img/star.png" /></span>
+        <td key={`star-btn${mail.id}`} className="star-container btn" onClick={() => onStar(mail.id)}>
+            <span className="btn-star"><img className="star-img mail-btn-size"
+                src={(mail.isStarred) ? "assets/img/starOn.png" : "assets/img/star.png"} />
+            </span>
         </td>
         <td className="author-container">
             <Link to={"/mail/" + mail.id}>
@@ -33,7 +33,11 @@ export function MailPreview({ mail, onRemoveMail }) {
             <span className="btn-bin"><img className="bin-img mail-btn-size" src="assets/img/bin.png" /></span>
         </td>
         <td key={`mark-btn${mail.id}`} className="mark-container btn">
-            <span className="btn-envelope"><img className="envelope-img mail-btn-size" src="assets/img/envelope.png" /></span>
+            <span className="btn-envelope"><img className="envelope-img mail-btn-size"
+                src={(mail.isRead) ? "assets/img/open-envelope.png" : "assets/img/envelope.png"} />
+            </span>
         </td>
     </tr>
 }
+
+

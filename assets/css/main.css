@@ -22,4 +22,5 @@
 @import './cmps/app-header.css';
 @import './apps/mail/cmps/mail-preview.css';
 @import './apps/mail/cmps/mail-list.css';
+@import './apps/mail/cmps/compose.css';
 @import './apps/mail/cmps/side-bar.css';
