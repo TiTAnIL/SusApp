@@ -12,29 +12,6 @@
     /* justify-content: center; */
 }
 
-.compose-container {
-    box-shadow: 0 1px 2px 0 #0000, 0 1px 3px 1px #0000;
-    transition: box-shadow .08s linear,min-width .15s cubic-bezier(0.4,0,0.2,1);
-    transition-property: box-shadow, min-width;
-    transition-duration: 0.08s, 0.15s;
-    transition-timing-function: linear, cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 0s, 0s;
-    border-radius: 16px;
-    justify-content: space-evenly;
-    display: flex;
-    width: 10rem;
-    height: 3rem;
-    align-items: center;
-    background-color: #c2e7ff;
-}
-
-.compose-icon {
-        background-image: url('https://www.gstatic.com/images/icons/material/system_gm/1x/create_black_24dp.png');
-        background-size: 24px;
-        height: 20px;
-        width: 20px;
-}
-
 .mail-btn-size {
     width: 2rem;
     display: flex;

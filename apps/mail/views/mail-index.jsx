@@ -28,8 +28,8 @@ export class MailIndex extends React.Component {
     onRemoveMail = (mailId) => {
         mailService.remove(mailId)
             .then(() => {
-                const mails = this.state.mails.filter(mail => mail.id !== mailId)
-                this.setState({ mails, selectedMail: null })
+                const mail = this.state.mails.filter(mail => mail.id !== mailId)
+                this.setState({ mail, selectedMail: null })
                 // showSuccessMsg('mail Removed')
             })
             .catch(err => {
@@ -38,10 +38,10 @@ export class MailIndex extends React.Component {
     }
 
     onStar = (mailId) => {
-        console.log(mailId)
+        // console.log(mailId)
         console.log(this.state.mails)
-        const mail = this.state.mails.filter(mail => mail.id === mailId)
-        console.log(mail)
+        const mails = this.state.mails.map(mail => mail.id === mailId  )
+        console.log('mail', mails)
     }
 
 

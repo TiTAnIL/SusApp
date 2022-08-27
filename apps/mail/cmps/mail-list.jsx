@@ -5,13 +5,7 @@ import { Compose } from "./compose.jsx"
 export function MailList({ mails, onRemoveMail, onStar }) {
 
     return <div>
-        <div className="compose-container">
-            <span className="compose-icon">
-            </span>
-            <span className="compose-text">
-                <Compose />
-            </span>
-        </div>
+        <Compose />
         <SideBar />
         <table className="flex">
             <tbody className="mails-app">

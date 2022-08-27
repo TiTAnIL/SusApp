@@ -24,17 +24,7 @@ export class MailDetails extends React.Component {
         const { mail } = this.state
         if (!mail) return <div>Loading...</div>
         return <section className="mail-details">
-            <div className="compose-container">
-                <span className="compose-icon">
-                </span>
-                <span className="compose-text">
-                </span>
-            <div className="compose-cotainer">
-                <span className="compose-icon"><Compose /></span>
-            </div>
-
-
-            </div>
+            <Compose />
             <SideBar />
             <div className="mail-container">
                 <div className="title"></div>
